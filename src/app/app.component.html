@@ -9,6 +9,7 @@
 <div class="music-list">
   <table mat-table [dataSource]="musicList" class="music-list">
     <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
       <td mat-cell *matCellDef="let music; let i=index;">
         <a style="cursor: pointer;">{{ music.title }}</a>
       </td>
@@ -26,3 +27,36 @@
       *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
+<footer>
+  <mat-toolbar>
+    <input type="file" #uploadFileInput multiple hidden accept=".mp3" />
+    <button mat-icon-button>
+      <mat-icon>cloud_upload</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>skip_previous</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>play_arrow</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>skip_next</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>volume_up</mat-icon>
+    </button>
+    <mat-slider
+      color="primary"
+      value="16" step="1"
+      min="0" max="16">
+    </mat-slider>
+  </mat-toolbar>
+  <mat-toolbar>
+    0:00&nbsp;/&nbsp;0:00
+    <mat-slider
+    class="slider-full"
+    color="primary"
+    min="0" max="1">
+    </mat-slider>
+  </mat-toolbar>
+</footer>
