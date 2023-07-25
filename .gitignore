@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+src/assets/clap.mp3
+src/assets/medidate.mp3
+src/assets/tango.mp3
