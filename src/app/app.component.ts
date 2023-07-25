@@ -22,7 +22,7 @@ export class AppComponent {
       album: "Test",
       title: "Meditate",
       artist: "Internet",
-      url: "/assets/meditate.mp3"
+      url: "/assets/medidate.mp3"
     },
     {
       album: "Test",
@@ -43,15 +43,37 @@ export class AppComponent {
   }
 
   play(index?: number): void {
-    if (this.audio.paused) {
-      if (this.audio.readyState === 0) {
-        this.trackPointer = 0;
-        this.currentMusic = this.musicList[0];
-        this.audio.src = this.currentMusic.url;
+    if (index === undefined) {
+      if (this.audio.paused) {
+        if (this.audio.readyState === 0) {
+          this.trackPointer = 0;
+          this.currentMusic = this.musicList[0];
+          this.audio.src = this.currentMusic.url;
+        }
+        this.audio.play();
+      } else {
+        this.audio.pause();
       }
-      this.audio.play();
     } else {
-      this.audio.pause();
+      this.trackPointer = index;
+      this.currentMusic = this.musicList[index];
+      this.audio.src = this.currentMusic.url;
+      this.audio.play();
     }
+    
+  }
+
+  prev(): void {
+    this.trackPointer--;
+    this.currentMusic = this.musicList[this.trackPointer];
+    this.audio.src = this.currentMusic.url;
+    this.audio.play();
+  }
+
+  next(): void {
+    this.trackPointer++;
+    this.currentMusic = this.musicList[this.trackPointer];
+    this.audio.src = this.currentMusic.url;
+    this.audio.play();
   }
 }
