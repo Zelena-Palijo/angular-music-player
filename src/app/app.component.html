@@ -39,21 +39,25 @@
     <button mat-icon-button (click)="play()">
       <mat-icon>{{ audio.paused ? 'play_arrow' : 'pause' }}</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="next()">
       <mat-icon>skip_next</mat-icon>
     </button>
-    <button mat-icon-button (click)="next()">
+    <button mat-icon-button>
       <mat-icon>volume_up</mat-icon>
     </button>
     <mat-slider
+      (input)="volumeSlider($event)"
       color="primary"
       value="16" step="1"
       min="0" max="16">
     </mat-slider>
+
   </mat-toolbar>
+
   <mat-toolbar>
     0:00&nbsp;/&nbsp;0:00
     <mat-slider
+    (input)="durationSlider($event)"
     class="slider-full"
     color="primary"
     min="0" max="1">

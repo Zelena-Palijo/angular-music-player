@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
+import { HammerModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatIconModule,
     MatTableModule,
     MatButtonModule,
-    MatSliderModule
+    MatSliderModule,
+    HammerModule
 
   ],
   providers: [],
