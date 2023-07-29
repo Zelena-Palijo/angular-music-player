@@ -57,10 +57,10 @@
   <mat-toolbar>
     0:00&nbsp;/&nbsp;0:00
     <mat-slider
-    (input)="durationSlider($event)"
     class="slider-full"
     color="primary"
-    min="0" max="1">
+    min="0" max="duration">
+    <input (slideend)="durationSlider($event)" matSliderThumb>
     </mat-slider>
   </mat-toolbar>
 </footer>
