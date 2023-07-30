@@ -17,6 +17,7 @@ export class AppComponent {
 
   constructor() {
     this.audio.ondurationchange = () => {
+      console.log('Duration change event fired.' );
       const totalSeconds = Math.floor(this.audio.duration),
           duration = moment.duration(totalSeconds, 'seconds');
       this.musicLength = duration.seconds() < 10 ?

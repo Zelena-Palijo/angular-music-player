@@ -55,12 +55,14 @@
   </mat-toolbar>
 
   <mat-toolbar>
-    0:00&nbsp;/&nbsp;0:00
+   {{ currentTime }}&nbsp;/&nbsp;{{ musicLength }}
     <mat-slider
+    (input)="durationSlider($event)"
     class="slider-full"
     color="primary"
-    min="0" max="duration">
-    <input (slideend)="durationSlider($event)" matSliderThumb>
+    [ngModel]="audio.readyState === 0 ? 0 : audio.currentTime"
+    min="0" [max]="duration">
+    <input matSliderThumb>
     </mat-slider>
   </mat-toolbar>
 </footer>
